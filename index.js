@@ -51,26 +51,31 @@ client.on("message", async message => {
 
 
 
-   if (cmd === `${prefix}report`){
-   var reportchannel = bot.channels.get('412328162975023104');
-             var reporteduser = message.mentions.users.first().id;
-             var reportreason = message.content.split(' ').slice(3).join(' ');
+    if(cmd === `${prefix}report`){
 
-             if (!message.channel.id == '412328162975023104') {
-              return message.reply(`Please report someone in the \`reports\` channel!`);
-             }
+    //!report @ned this is the reason
 
-             if (message.author.id === reporteduser) {
-                 return message.reply('You cant punish yourself :wink:')
-             }
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!rUser) return message.channel.send("Couldn't find user.");
+    let rreason = args.join(" ").slice(22);
 
-             if (message.mentions.users.size < 1 || message.mentions.users.size > 1) {
-                 return message.reply('You need to mention someone to report him!')
-             }
+    let reportEmbed = new Discord.RichEmbed()
+    .setDescription("Reports")
+    .setColor("#15f153")
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Channel", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", rreason);
 
-             reportchannel.send(`Maniak: ${message.author.tag}\nReported user: ${reporteduser}\nReason: ${reportreason}`);
+    let reportschannel = message.guild.channels.find(`name`, "reports");
+    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
-             message.reply(`We got your report! Thanks :heart:`);
+
+    message.delete().catch(O_o=>{});
+    reportschannel.send(reportEmbed);
+
+    return;
    }
    if (cmd === `${prefix}help`){
    message.reply('שולח לך בפרטי נודר');
