@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.on('ready', () => {
   console.log(`Bot is Online!`);
   client.on("ready", function() {
 client.user.setActivity(`${client.users.size} Members | +help`);
