@@ -16,7 +16,5 @@ client.on("message", async message => {
   let args = messageArray.slice(1);
 
 
-
-  }
 });
 client.login(process.env.BOT_TOKEN);
