@@ -113,6 +113,7 @@ https://www.instagram.com/keysar7/
 [כל הזכויות שמורות לבן קיסר].
 
  TAGS:  [ @everyone ]")
+ .setColor("#00ff33")                 
   }
   if(cmd === `${prefix}ban`){
 
