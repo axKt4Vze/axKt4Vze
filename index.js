@@ -53,7 +53,52 @@ if (cmd === `${prefix}mute`){
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
   }, ms(mutetime));
 }
+if(cmd === `${prefix}kick`){
 
-  
+  //!kick @user break the rules
+  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!kUser) return message.channel.send("k!kick [@user] [reason]");
+  let kReason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("אין לך גישה לפקודה זו");
+  if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+
+  let kickEmbed = new Discord.RichEmbed()
+  .setDescription("**Kick**")
+  .setColor("#d83c3c")
+  .addField("User", `${kUser}`)
+  .addField("Staff", `<@${message.author.id}>`)
+  .addField("Reason", kReason);
+
+  let kickChannel = message.guild.channels.find(`name`, "logs");
+  if(!kickChannel) return message.channel.send("Can't find channel called `logs`");
+
+  message.guild.member(kUser).kick(kReason);
+  kickChannel.send(kickEmbed);
+
+  return;
+}
+  if(cmd === `${prefix}ban`){
+
+  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!bUser) return message.channel.send("k!ban [@user] [reason]");
+  let bReason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("אין לך גישה לפקודה זו");
+  if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned!");
+
+  let banEmbed = new Discord.RichEmbed()
+  .setDescription("**Ban**")
+  .setColor("#bc0000")
+  .addField("**User**", `${bUser}`)
+  .addField("**Staff**", `<@${message.author.id}>`)
+  .addField("Reason", bReason);
+
+  let incidentchannel = message.guild.channels.find(`name`, "logs");
+  if(!incidentchannel) return message.channel.send("Can't find channel called `logs`");
+
+  message.guild.member(bUser).ban(bReason);
+  incidentchannel.send(banEmbed);
+
+  return;
+}
 });
 client.login(process.env.BOT_TOKEN);
