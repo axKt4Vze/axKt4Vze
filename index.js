@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
   console.log(`Bot is Online!`);
   client.on("ready", function() {
-client.user.setActivity(`${client.users.size} Members | +help`);
+client.user.setActivity(`${client.users.size} פרינקפסים | !help`);
 });
 
 client.on("message", async message => {
