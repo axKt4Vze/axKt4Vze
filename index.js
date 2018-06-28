@@ -57,7 +57,7 @@ if (cmd === `${prefix}mute`){
   const helpembed = new Discord.RichEmbed()
     .setTitle("Help Commands")
     .setColor("#15f153")
-    .setDescription("פקודות לצוות:\n`k!kick` `k!ban` `k!mute` `k!unmute` `k!unban`\n\nפקודות רגילות:\n`k!help` `פקודות נוספות בקרוב`");
+    .setDescription("פקודות לצוות:\n`k!kick` `k!ban` `k!mute` `k!unmute` `k!unban`\n\nפקודות רגילות:\n`k!help` `k!insta` `k!channel` `פקודות נוספות בקרוב`");
 message.author.send(helpembed)
 message.reply("קיבלת יהלום של פקודות לפרטי! <:diamond:461865783476224000>")
 }
@@ -85,6 +85,12 @@ if(cmd === `${prefix}kick`){
 
   return;
 }
+  if(cmd === `${prefix}channel`){
+    message.reply("https://www.youtube.com/BenKeysar")
+  }
+  if(cmd === `${prefix}insta`){
+    message.reply("https://www.youtube.com/BenKeysar")
+  }
   if(cmd === `${prefix}ban`){
 
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
