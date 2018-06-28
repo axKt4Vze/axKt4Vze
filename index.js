@@ -17,10 +17,6 @@ client.on("message", async message => {
 
 
 
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
   }
 });
-
 client.login(process.env.BOT_TOKEN);
