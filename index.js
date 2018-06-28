@@ -89,7 +89,7 @@ if(cmd === `${prefix}kick`){
     message.reply("https://www.youtube.com/BenKeysar")
   }
   if(cmd === `${prefix}insta`){
-    message.reply("https://www.youtube.com/BenKeysar")
+    message.reply("https://www.instagram.com/keysar7/")
   }
   if(cmd === `${prefix}ban`){
 
