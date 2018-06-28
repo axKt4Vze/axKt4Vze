@@ -81,8 +81,8 @@ if(cmd === `${prefix}kick`){
   let BenEmbed = new Discord.RichEmbed()
     .setDescription("אני יודע, שאתם יודעים, שאני יודע, שאנלא יודע כלום!\n\nאבל יש לי דיסקורד משלי :nerd::muscle:\n\nמה קורה פרינקסים??\n\nאם אתם רוצים לקבל פרסום באחד הלייבים של בן אתם מוזמנים לקרוא את ההודעה וללחוץ על ה :white_check_mark: שלמטה.\n\nחוקי השרת:\n\n- אין לקלל באופן מוגזם, אנחנו מקבלים קללות בגבול ה״טעם הטוב״. קללות מוגזמות יובילו להשתקה.\n\n- אין להספים - לשלוח הודעה לאחר הודעה לאחר הודעה ללא משמעות.\n\n- אין לדבר באופן בוטה, גזעני וכדומה. דיבורים בסגנון יובילו לבאן מיידי.\n\n- אין להשתמש בתוכנות לשינוי הקול, שימוש בתוכנה לשינוי קול תוביל להשתקה של המשתמש לתמיד.\n\n- אין לאיים על משתמשים בשרת.\n\n - אין לפרסם מידע אישי של משתמש ללא רשות. פרסום מידע אישי יוביל לבאן של שבוע.\n\n- אין לדון על עסקות בפורטנייט, את זה אתם יכולים לעשות בפרטי. דיבורים כנידון יובילו להשתקה.\n\n:gem: לערוץ של בן:\n\nhttps://www.youtube.com/BenKeysar\n\n:gem: לאינסטגרם של בן:\n\nhttps://www.instagram.com/keysar7/\n\n[כל הזכויות שמורות לבן קיסר].\n\n TAGS:  [ @everyone ]")
   .setColor("#00ff33")
-    let ruleschannel = message.guild.channels.find(`name`, "tests");
-  if(!ruleschannel) return message.channel.send("Can't find channel called `tests`");
+    let ruleschannel = message.guild.channels.find(`name`, "rules");
+  if(!ruleschannel) return message.channel.send("Can't find channel called `rules`");
     
   ruleschannel.send(BenEmbed);
   }
