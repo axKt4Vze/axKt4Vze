@@ -57,6 +57,8 @@ if (cmd === `${prefix}mute`){
     .setTimestamp()
     .addField('Muted:', `${user.username}!${user.discriminator} (${user.id})`)
     .addField('By:', `${message.author.username}!${message.author.discriminator}`)
+     let muteChannel = message.guild.channels.find(`name`, "logs");
+   if(!muteChannel) return message.channel.send("Can't find channel called `logs`");
 }
     if (cmd === `${prefix}help`){
   const helpembed = new Discord.RichEmbed()
