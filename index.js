@@ -66,7 +66,7 @@ if (cmd === `${prefix}mute`){
     .setColor("#15f153")
     .setDescription("פקודות לצוות:\n`k!kick` `k!ban` `k!mute` `k!unmute` `k!unban`\n\nפקודות רגילות:\n`k!help` `k!insta` `k!channel`");
 message.author.send(helpembed)
-message.reply("קיבלת יהלום של פקודות לפרטי! <:diamond:461865783476224000>")
+message.reply("רשימת הפקודות נשלחה אלייך בהודעה פרטית.")
 }
 if(cmd === `${prefix}kick`){
 
