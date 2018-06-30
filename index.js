@@ -59,8 +59,8 @@ if (cmd === `${prefix}mute`){
   .addField("Staff", `<@${message.author.id}>`)
   .addField("Time and reason", kReason);
 
-  let kickChannel = message.guild.channels.find(`name`, "logs");
-  if(!kickChannel) return message.channel.send("Can't find channel called `logs`");
+  let muteChannel = message.guild.channels.find(`name`, "logs");
+  if(!muteChannel) return message.channel.send("Can't find channel called `logs`");
 
   message.guild.member(kUser).kick(kReason);
   muteChannel.send(muteEmbed);
