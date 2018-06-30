@@ -52,6 +52,20 @@ if (cmd === `${prefix}mute`){
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
   }, ms(mutetime));
+   let muteEmbed = new Discord.RichEmbed()
+  .setDescription("**Muted**")
+  .setColor("#d83c3c")
+  .addField("User", `${kUser}`)
+  .addField("Staff", `<@${message.author.id}>`)
+  .addField("Time and reason", kReason);
+
+  let kickChannel = message.guild.channels.find(`name`, "logs");
+  if(!kickChannel) return message.channel.send("Can't find channel called `logs`");
+
+  message.guild.member(kUser).kick(kReason);
+  muteChannel.send(muteEmbed);
+
+  return;
 }
     if (cmd === `${prefix}help`){
   const helpembed = new Discord.RichEmbed()
