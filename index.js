@@ -55,14 +55,14 @@ if (cmd === `${prefix}mute`){
    let muteEmbed = new Discord.RichEmbed()
   .setDescription("**Muted**")
   .setColor("#d83c3c")
-  .addField("User", `${kUser}`)
+  .addField("User", `${mUser}`)
   .addField("Staff", `<@${message.author.id}>`)
-  .addField("Time and reason", kReason);
+  .addField("Time and reason", mReason);
 
   let muteChannel = message.guild.channels.find(`name`, "logs");
   if(!muteChannel) return message.channel.send("Can't find channel called `logs`");
 
-  message.guild.member(kUser).kick(kReason);
+  message.guild.member(mUser).kick(mReason);
   muteChannel.send(muteEmbed);
 
   return;
