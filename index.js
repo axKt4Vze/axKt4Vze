@@ -52,13 +52,13 @@ if (cmd === `${prefix}mute`){
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
   }, ms(mutetime));
+    let kickChannel = message.guild.channels.find(`name`, "logs");
+  if(!kickChannel) return message.channel.send("Can't find channel called `logs`");
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .addField('Muted:', `${user.username}!${user.discriminator} (${user.id})`)
     .addField('By:', `${message.author.username}!${message.author.discriminator}`)
-     let muteChannel = message.guild.channels.find(`name`, "logs");
-   if(!muteChannel) return message.channel.send("Can't find channel called `logs`");
 }
     if (cmd === `${prefix}help`){
   const helpembed = new Discord.RichEmbed()
