@@ -33,6 +33,12 @@ module.exports.run = async (bot, message, args) => {
   await(tomute.addRole(muterole.id));
   message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
   
+ 
+  setTimeout(function(){
+    tomute.removeRole(muterole.id);
+    message.channel.send(`<@${tomute.id}> has been unmuted!`);
+  }, ms(mutetime));
+}
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
@@ -41,9 +47,3 @@ module.exports.run = async (bot, message, args) => {
   
       let muteChannel = message.guild.channels.find(`name`, "logs");
   if(!muteChannel) return message.channel.send("Can't find channel called `logs`");
-  
-  setTimeout(function(){
-    tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
-  }, ms(mutetime));
-}
